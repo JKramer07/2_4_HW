@@ -1,5 +1,9 @@
 package com.company;
 
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -18,5 +22,28 @@ public class Main {
         Biology biology = new Biology();
         biologyCourse.setSubject(biology);
         biologyCourse.tasks(biology);
+
+        List<Subject> subjectList = new ArrayList<>();
+        subjectList.add(new Subject());
+
+        List<Math> mathList = new ArrayList<>();
+        mathList.add(new Math());
+
+        List<Geography> geographyList = new ArrayList<>();
+        geographyList.add(new Geography());
+
+        List<Biology> biologyList = new ArrayList<>();
+        biologyList.add(new Biology());
+
+        toDoListOfCourses(subjectList);
+        toDoListOfCourses(mathList);
+        toDoListOfCourses(geographyList);
+        toDoListOfCourses(biologyList);
+    }
+
+    public static void toDoListOfCourses(List<? extends Subject> list){
+        for(Subject subject : list){
+            subject.callTheme();
+        }
     }
 }
